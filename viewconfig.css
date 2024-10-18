@@ -17,6 +17,7 @@ body {
     margin: 0;
 }
 
+/* Navbar Styles */
 .luxury-navbar {
     font-family: 'Merriweather', serif;
     font-weight: bold; 
@@ -25,9 +26,9 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #796c1e; 
-    padding: 20px 50px;
-    position: fixed;
-    top: 0;
+    padding: 20px 50px; 
+    position: fixed; 
+    top: 0; 
     width: 100%; 
     z-index: 1000; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -63,6 +64,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2); 
 }
 
+
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none; 
@@ -93,37 +95,37 @@ body {
     }
 }
 
-
-
 /* Table Styles */
 .table-container {
-    max-width: 100%;
+    max-width: 1200px; 
     overflow-x: auto; 
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: auto;
+    padding: 1.5rem; 
+    margin-top: 80px;
     text-align: center;
-    border: 2px solid #dee2e6; 
 }
 
 caption {
-    font-size: 32px;
+    font-size: 2rem; 
     font-weight: bold;
     color: #333;
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px; 
+}
+
+.table-scroll {
+    max-height: 400px; 
+    overflow-y: auto; 
 }
 
 table {
     width: 100%; 
     border-collapse: collapse; 
     margin-top: 20px;
-    border: 2px solid #dee2e6;
-    border-radius: 10px; 
 }
 
 thead {
@@ -131,11 +133,15 @@ thead {
 }
 
 th, td {
-    padding: 15px;
+    padding: 12px; 
     text-align: left;
     font-size: 1rem; 
     color: #34495e;
-    border: 1px solid #dee2e6; 
+    border-right: 1px solid #dee2e6; 
+}
+
+th:last-child, td:last-child {
+    border-right: none; 
 }
 
 th {
@@ -146,13 +152,14 @@ th {
 
 tbody tr {
     background-color: #ffffff;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 tbody tr:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 
 tbody tr:nth-child(even) {
     background-color: #f8f9fa; 
@@ -174,26 +181,25 @@ td:last-child, th:last-child {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    body {
-        padding: 1rem; 
-    }
-    
     .table-container {
         padding: 1rem;
         max-width: 90%; 
-    }
-
-    table {
-        width: 100%; 
     }
 
     th, td {
         font-size: 0.9rem; 
         padding: 10px; 
     }
-    
+}
+
+@media (max-width: 480px) {
     .table-container {
         max-width: 300px; 
+    }
+
+    th, td {
+        font-size: 0.8rem; 
+        padding: 8px; 
     }
 }
 
