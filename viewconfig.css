@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-image: url('https://wallpapers.com/images/hd/fairy-forest-0hwy0rsweghb1j1r.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.luxury-navbar {
+    font-family: 'Merriweather', serif;
+    font-weight: bold; /* ทำให้ฟอนต์หนา */
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #796c1e; /* เปลี่ยนสีพื้นหลัง */
+    padding: 20px 50px; /* เพิ่ม padding */
+    position: fixed; /* ทำให้ navbar อยู่ที่ตำแหน่ง fixed */
+    top: 0; /* ตั้งค่าให้เริ่มที่ด้านบน */
+    width: 100%; /* ให้ navbar ขยายเต็มความกว้างของหน้าจอ */
+    z-index: 1000; /* ทำให้ navbar อยู่เหนือองค์ประกอบอื่น */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    transition: background-color 0.3s; /* เอฟเฟกต์การเปลี่ยนสี */
+}
+
+.luxury-navbar:hover {
+    background-color: #828c43; /* เปลี่ยนสีเมื่อเลื่อนเมาส์ */
+}
+
+.luxury-navbar .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold; /* ทำให้ตัวอักษรหนา */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; /* เพิ่ม padding ให้กับลิงก์ */
+    border-radius: 5px; /* มุมโค้ง */
+    transition: background-color 0.3s; /* เอฟเฟกต์การเปลี่ยนสี */
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* สีพื้นหลังเมื่อเลื่อนเมาส์ */
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* ซ่อนเมนูเมื่อหน้าจอเล็ก */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #0c0c0d;
+        text-align: center;
+    }
+
+    .burger {
+        display: flex; /* แสดงปุ่ม hamburger */
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .burger div {
+        height: 3px; /* ความหนาของปุ่ม */
+        width: 30px; /* ความกว้างของปุ่ม */
+        background-color: white; /* สีของปุ่ม */
+        margin: 3px 0; /* ระยะห่างระหว่างปุ่ม */
+    }
+
+    .nav-active {
+        display: flex; /* แสดงเมนูเมื่อ active */
+    }
+}
+
+
+
+/* Table Styles */
+.table-container {
+    max-width: 100%;
+    overflow-x: auto; /* ให้เลื่อนในแนวนอนถ้าตารางกว้างเกิน */
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: auto;
+    text-align: center;
+    border: 2px solid #dee2e6; /* เพิ่มกรอบให้กับ table container */
+}
+
+caption {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+table {
+    width: 100%; /* ให้ตารางขยายเต็มความกว้าง */
+    border-collapse: collapse; /* เอาช่องว่างระหว่างเส้นขอบออก */
+    margin-top: 20px;
+    border: 2px solid #dee2e6; /* เพิ่มกรอบให้กับตาราง */
+    border-radius: 10px; /* ทำมุมโค้งให้กับตาราง */
+}
+
+thead {
+    background-color: #8d572b;
+}
+
+th, td {
+    padding: 15px; /* ปรับ padding ให้มีพื้นที่มากขึ้น */
+    text-align: left;
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    color: #34495e;
+    border: 1px solid #dee2e6; /* เพิ่มเส้นขอบให้กับเซลล์ */
+}
+
+th {
+    color: #ffffff; /* สีข้อความหัวข้อ */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    transform: translateY(-3px); /* ลดการเด้งเพื่อความนุ่มนวล */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* สีพื้นหลังสลับ */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(52, 152, 219, 0.05); /* สีพื้นหลังสลับ */
+}
+
+td:first-child, th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+td:last-child, th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem; /* เพิ่ม padding ให้กับ body */
+    }
+    
+    .table-container {
+        padding: 1rem;
+        max-width: 90%; /* ให้ตารางแคบลง */
+    }
+
+    table {
+        width: 100%; /* ให้ตารางขยายเต็มความกว้าง */
+    }
+
+    th, td {
+        font-size: 0.9rem; /* ขนาดตัวอักษรที่เล็กลงสำหรับหน้าจอเล็ก */
+        padding: 10px; /* ปรับ padding ให้น้อยลง */
+    }
+    
+    .table-container {
+        max-width: 300px; /* ปรับขนาดสูงสุดของตาราง */
+    }
+}
+
+
+
+
+
+/* Loading Styles */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

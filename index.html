@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Navbar</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav class="luxury-navbar">
+        <div class="logo">
+            <a href="#">Web App API</a>
+        </div>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="viewconfig.html">View Config</a></li>
+            <li><a href="tem.html">Temperature Log Form</a></li>
+            <li><a href="viewlog.html">View Logs</a></li>
+        </ul>
+    </nav>
+
+    <div class="card">
+        <h1 class="title">Profile Card</h1>
+        <table class="invisible-table">
+            <tr>
+                <td class="profile-picture">
+                    <img src="https://www.barclondon.com/cdn/shop/articles/adolescent-dog-with-stick.jpg?v=1654258417&width=2000" alt="Profile Picture">
+                </td>
+            </tr>
+            <tr>
+                <td class="login">BarBee</td>
+            </tr>
+            <tr>
+                <td class="description">Student of Web Developer</td>
+            </tr>
+            <tr>
+                <td class="social-networks">
+                    <a href="https://www.facebook.com/profile.php?id=100003951069047" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/field_ansnv?igsh=bmxseWZ2ODN3cGdr&utm_source=qr" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram"></a>
+                    <a href="https://line.me/ti/p/DH0utxh1ou" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" alt="Line"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="contact-button">
+                    <a href="mailto:annisanoivong@gmail.com">Contact</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('nav-active');
+        }
+    </script>
+</body>
+</html>
