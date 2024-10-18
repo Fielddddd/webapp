@@ -1,11 +1,11 @@
 async function fetchLogs() {
-    const droneId = "65011216"; // ใช้สตริง
+    const droneId = "65011216";
     const logsUrl = 'https://app-tracking.pockethost.io/api/collections/drone_logs/records';
     let allLogs = []; // เก็บ logs ทั้งหมด
-    let page = 1; // เริ่มต้นที่หน้า 1
-    let totalPages = 1; // จำนวนหน้าทั้งหมด (เริ่มต้นเป็น 1)
+    let page = 1; 
+    let totalPages = 1;
 
-    // แสดงหน้าโหลด
+    // หน้าโหลด
     document.getElementById('loading').style.display = 'flex';
 
     try {
@@ -27,25 +27,20 @@ async function fetchLogs() {
                 return;
             }
 
-            allLogs = allLogs.concat(data.items); // รวม logs จากแต่ละหน้า
+            allLogs = allLogs.concat(data.items); // รวม logs แต่ละหน้า
             totalPages = data.totalPages; // เก็บจำนวนหน้าที่ดึงมา
-
-            page++; // ไปยังหน้าถัดไป
+            page++; // ไปหน้าถัดไป
         } while (page <= totalPages);
 
         // กรอง logs ตาม drone_id ที่กำหนด
-        const logs = allLogs.filter(log => {
-            console.log("Checking log drone_id:", log.drone_id); // แสดง drone_id ที่กำลังเช็ค
-            return log.drone_id && log.drone_id.toString() === droneId;
-        });
-        
+        const logs = allLogs.filter(log => log.drone_id && log.drone_id.toString() === droneId);
         const logsBody = document.getElementById('logsBody');
         logsBody.innerHTML = ''; // ล้างข้อมูลในตารางก่อน
 
         if (logs.length === 0) {
             document.getElementById('noLogsMessage').style.display = 'block'; // แสดงข้อความเมื่อไม่มี logs
         } else {
-            // เรียง logs ตามวันที่ล่าสุด (ใหม่ที่สุดอยู่บนสุด)
+            // เรียง logs ใหม่ที่สุดอยู่บนสุด
             logs.sort((a, b) => new Date(b.created) - new Date(a.created));
             logs.forEach(log => {
                 const row = document.createElement('tr');
@@ -62,12 +57,8 @@ async function fetchLogs() {
     } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
     } finally {
-        // ซ่อนหน้าโหลดเมื่อเสร็จสิ้น
         document.getElementById('loading').style.display = 'none';
     }
 }
 
-// เรียกใช้งานฟังก์ชันเมื่อโหลดหน้าเสร็จ
-window.onload = function() {
-    fetchLogs();
-};
+window.onload = fetchLogs;

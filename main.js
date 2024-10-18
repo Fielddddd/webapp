@@ -8,18 +8,17 @@ async function fetchDroneData() {
     document.getElementById('loading').style.display = 'flex';
 
     try {
-        // ดึงข้อมูลจาก Google Script URL ที่ให้มา
+        // ดึงข้อมูลจาก URL
         const response = await fetch('https://script.google.com/macros/s/AKfycbzwclqJRodyVjzYyY-NTQDb9cWG6Hoc5vGAABVtr5-jPA_ET_2IasrAJK4aeo5XoONiaA/exec');
         const data = await response.json();
         
-        console.log(data); // ตรวจสอบข้อมูลทั้งหมดที่ได้รับ
+        console.log(data);
 
         if (Array.isArray(data.data)) {
-            // กรองข้อมูลเพื่อให้แสดงเฉพาะ drone_id ที่ต้องการ
+            // กรองข้อมูลตาม drone_id
             const filteredDrones = data.data.filter(drone => drone.drone_id === 65011216);
-            console.log(filteredDrones); // ตรวจสอบข้อมูลที่กรองแล้ว
+            console.log(filteredDrones);
             
-            // แสดงข้อมูลถ้ามี
             if (filteredDrones.length > 0) {
                 displayDroneData(filteredDrones);
             } else {
@@ -32,7 +31,6 @@ async function fetchDroneData() {
     } catch (error) {
         console.error('Error fetching data:', error);
     } finally {
-        // ซ่อนหน้าโหลดเมื่อเสร็จสิ้น
         document.getElementById('loading').style.display = 'none';
     }
 }
@@ -43,21 +41,16 @@ function displayDroneData(droneItems) {
 
     droneItems.forEach(drone => {
         // ตรวจสอบค่า max_speed
-        let maxSpeedDisplay;
-        if (drone.max_speed === null || typeof drone.max_speed === 'undefined') {
-            maxSpeedDisplay = 100; // ถ้าไม่มี max_speed ให้แสดง 100
-        } else if (drone.max_speed > 110) {
-            maxSpeedDisplay = 110; // ถ้า max_speed > 110 ให้แสดง 110
-        } else {
-            maxSpeedDisplay = drone.max_speed; // แสดงค่า max_speed ปกติ
-        }
+        const maxSpeedDisplay = (drone.max_speed === null || typeof drone.max_speed === 'undefined') 
+            ? 100 
+            : (drone.max_speed > 110 ? 110 : drone.max_speed);
 
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${drone.drone_id || 'N/A'}</td>
             <td>${drone.drone_name || 'N/A'}</td>
             <td>${drone.light || 'N/A'}</td> 
-            <td>${maxSpeedDisplay}</td> <!-- ใช้ maxSpeedDisplay ที่ปรับปรุงแล้ว -->
+            <td>${maxSpeedDisplay}</td>
             <td>${drone.country || 'N/A'}</td>
             <td>${drone.population || 'N/A'}</td>
         `;
@@ -65,11 +58,9 @@ function displayDroneData(droneItems) {
     });
 }
 
-
 function displayNoDataMessage() {
     const tableBody = document.getElementById('drone-table').querySelector('tbody');
     tableBody.innerHTML = '<tr><td colspan="6">No data available for this drone ID.</td></tr>';
 }
 
-// Fetch and display data when the page loads
 window.onload = fetchDroneData;
