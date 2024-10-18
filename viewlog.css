@@ -98,7 +98,8 @@ body {
 /* Table Styles */
 .table-container {
     max-width: 1200px; 
-    overflow-x: auto; 
+    overflow-x: auto; /* เพิ่มการเลื่อนในแนวนอน */
+    overflow-y: hidden; /* ปิดการเลื่อนในแนวตั้ง */
     background-color: #ffffff;
     border-radius: 10px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -107,26 +108,19 @@ body {
     text-align: center;
 }
 
-caption {
-    font-size: 2rem; 
-    font-weight: bold;
-    color: #333;
-    margin: 20px 0;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px; 
-}
-
 .table-scroll {
     max-height: 400px; 
     overflow-y: auto; 
+    overflow-x: auto; /* เพิ่มการเลื่อนในแนวนอน */
 }
 
 table {
     width: 100%; 
+    min-width: 600px; /* กำหนดความกว้างขั้นต่ำสำหรับตาราง */
     border-collapse: collapse; 
     margin-top: 20px;
 }
+
 
 thead {
     background-color: #8d572b;
