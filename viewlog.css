@@ -98,8 +98,8 @@ body {
 /* Table Styles */
 .table-container {
     max-width: 1200px; 
-    overflow-x: auto; /* เพิ่มการเลื่อนในแนวนอน */
-    overflow-y: hidden; /* ปิดการเลื่อนในแนวตั้ง */
+    overflow-x: auto; 
+    overflow-y: hidden; 
     background-color: #ffffff;
     border-radius: 10px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -111,12 +111,12 @@ body {
 .table-scroll {
     max-height: 400px; 
     overflow-y: auto; 
-    overflow-x: auto; /* เพิ่มการเลื่อนในแนวนอน */
+    overflow-x: auto;
 }
 
 table {
     width: 100%; 
-    min-width: 600px; /* กำหนดความกว้างขั้นต่ำสำหรับตาราง */
+    min-width: 600px;
     border-collapse: collapse; 
     margin-top: 20px;
 }
