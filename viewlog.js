@@ -1,5 +1,5 @@
 async function fetchLogs() {
-    const droneId = "65011216";
+    const droneId = "65011216"; // กำหนด drone_id ที่ต้องการ
     const logsUrl = 'https://server-api-vert.vercel.app/logs';
     let allLogs = []; // เก็บ logs ทั้งหมด
     let page = 1; 
