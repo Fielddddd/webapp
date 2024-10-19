@@ -1,6 +1,6 @@
 async function fetchLogs() {
     const droneId = "65011216";
-    const logsUrl = 'https://app-tracking.pockethost.io/api/collections/drone_logs/records';
+    const logsUrl = 'https://server-api-vert.vercel.app/logs';
     let allLogs = []; // เก็บ logs ทั้งหมด
     let page = 1; 
     let totalPages = 1;
