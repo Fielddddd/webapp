@@ -8,7 +8,7 @@ async function fetchLogs() {
 
     try {
         // ดึงข้อมูล logs
-        const response = await fetch(logsUrl); // ไม่ต้องใช้ page ในกรณีนี้
+        const response = await fetch(logsUrl);
         if (!response.ok) {
             console.error("Network response was not ok", response.status);
             return;
