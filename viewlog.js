@@ -1,5 +1,5 @@
 async function fetchLogs() {
-    const droneId = "65011216"; // กำหนด drone_id ที่ต้องการ
+    const droneId = "65011216"; 
     const logsUrl = 'https://server-api-vert.vercel.app/logs';
 
     // หน้าโหลด
@@ -23,7 +23,7 @@ async function fetchLogs() {
             return;
         }
 
-        // กรอง logs ตาม drone_id ที่กำหนด
+        // กรอง logs ตาม drone_id 
         const logs = data.filter(log => log.drone_id && log.drone_id.toString() === droneId);
         const logsBody = document.getElementById('logsBody');
         logsBody.innerHTML = ''; // ล้างข้อมูลในตารางก่อน
