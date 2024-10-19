@@ -15,8 +15,8 @@ document.getElementById('temperatureForm').addEventListener('submit', function(e
     // แสดงหน้าโหลด
     showLoading(true);
 
-    // ส่งข้อมูลไปยัง API
-    fetch('https://app-tracking.pockethost.io/api/collections/drone_logs/records', {
+    // ส่งข้อมูลไปยัง API ที่เซิร์ฟเวอร์ของคุณ
+    fetch('https://server-api-vert.vercel.app/log', { // เปลี่ยนเป็น URL ของเซิร์ฟเวอร์ของคุณ
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
