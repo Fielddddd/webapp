@@ -16,15 +16,15 @@ async function fetchLogs() {
         const data = await response.json();
         console.log("Raw data from API:", data); // ดูข้อมูลที่ดึงมา
 
-        // ตรวจสอบว่า items มีข้อมูลหรือไม่
-        if (!data.items || !Array.isArray(data.items)) {
-            console.error("No items found or items is not an array");
+        // ตรวจสอบว่ามี items หรือไม่
+        if (!Array.isArray(data)) { // ตรวจสอบว่าเป็นอาร์เรย์หรือไม่
+            console.error("No items found or items is not an array", data); // แสดงข้อมูลที่ได้รับ
             document.getElementById('noLogsMessage').style.display = 'block'; // แสดงข้อความเมื่อไม่มีข้อมูล
             return;
         }
 
         // กรอง logs ตาม drone_id ที่กำหนด
-        const logs = data.items.filter(log => log.drone_id && log.drone_id.toString() === droneId);
+        const logs = data.filter(log => log.drone_id && log.drone_id.toString() === droneId);
         const logsBody = document.getElementById('logsBody');
         logsBody.innerHTML = ''; // ล้างข้อมูลในตารางก่อน
 
