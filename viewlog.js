@@ -1,6 +1,6 @@
 async function fetchLogs() {
-    const droneId = "65011216";
-    const logsUrl = 'https://server-api-vert.vercel.app/logs'; // เปลี่ยน URL
+    const droneId = "65011216"; // กำหนด droneId ที่ต้องการ
+    const logsUrl = 'https://server-api-vert.vercel.app/logs'; // URL ของ API
     let allLogs = []; // เก็บ logs ทั้งหมด
     let page = 1; 
     let totalPages = 1;
@@ -27,7 +27,8 @@ async function fetchLogs() {
                 return;
             }
 
-            allLogs = allLogs.concat(data.items); // รวม logs แต่ละหน้า
+            // รวม logs แต่ละหน้า
+            allLogs = allLogs.concat(data.items); 
             totalPages = data.totalPages; // เก็บจำนวนหน้าที่ดึงมา
             page++; // ไปหน้าถัดไป
         } while (page <= totalPages);
