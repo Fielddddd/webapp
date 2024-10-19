@@ -1,6 +1,6 @@
 async function fetchLogs() {
-    const droneId = "65011216"; // กำหนด droneId ที่ต้องการ
-    const logsUrl = 'https://server-api-vert.vercel.app/logs'; // URL ของ API
+    const droneId = "65011216";
+    const logsUrl = 'https://app-tracking.pockethost.io/api/collections/drone_logs/records';
     let allLogs = []; // เก็บ logs ทั้งหมด
     let page = 1; 
     let totalPages = 1;
@@ -11,7 +11,7 @@ async function fetchLogs() {
     try {
         // ดึงข้อมูลจากทุกหน้า
         do {
-            const response = await fetch(`${logsUrl}?page=${page}`); // เชื่อมต่อกับ API ของเซิร์ฟเวอร์
+            const response = await fetch(`${logsUrl}?page=${page}`);
             if (!response.ok) {
                 console.error("Network response was not ok", response.status);
                 return;
@@ -27,8 +27,7 @@ async function fetchLogs() {
                 return;
             }
 
-            // รวม logs แต่ละหน้า
-            allLogs = allLogs.concat(data.items); 
+            allLogs = allLogs.concat(data.items); // รวม logs แต่ละหน้า
             totalPages = data.totalPages; // เก็บจำนวนหน้าที่ดึงมา
             page++; // ไปหน้าถัดไป
         } while (page <= totalPages);
