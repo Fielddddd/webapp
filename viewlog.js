@@ -25,9 +25,12 @@ async function fetchLogs() {
         }
 
         allLogs = data; // ตั้งค่าข้อมูล logs ทั้งหมด
+        console.log("All logs:", allLogs); // แสดง logs ทั้งหมด
 
         // กรอง logs ตาม drone_id ที่กำหนด
         const logs = allLogs.filter(log => log.drone_id && log.drone_id.toString() === droneId);
+        console.log("Filtered logs:", logs); // แสดง logs ที่กรองแล้ว
+
         const logsBody = document.getElementById('logsBody');
         logsBody.innerHTML = ''; // ล้างข้อมูลในตารางก่อน
 
